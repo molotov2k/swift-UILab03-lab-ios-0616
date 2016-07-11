@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // TODO: Create IB outlets
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet var edgeLabels: [UILabel]!
+    @IBOutlet weak var centerLabel: UILabel!
+    @IBAction func buttonPressed(sender: UIButton) {
+        let buttonText = sender.titleLabel!.text!
+        let suit = buttonText.substringToIndex(buttonText.startIndex.advancedBy(1))
+        let value = buttonText.substringFromIndex(buttonText.startIndex.advancedBy(1))
+        for label in edgeLabels { label.text = suit }
+        centerLabel.text = value
     }
-
-    // TODO: IB actions and code to update UI
 }
